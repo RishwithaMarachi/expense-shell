@@ -27,7 +27,7 @@ echo -e "\e[32m install mysql \e[0m"
 dnf install mysql -y
 
 echo -e "\e[33m Load Schema \e[0m"
-mysql -h 3.81.37.30 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h mysql-dev.devopsr1.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 echo -e "\e[34m Reload Enable and Restart \e[0m"
 systemctl daemon-reload
