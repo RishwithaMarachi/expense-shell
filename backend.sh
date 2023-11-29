@@ -3,6 +3,12 @@ COLOR="\e[31m"
 
 echo -e "$COLOR Disable older version and enable nodejs:18 \e[0m"
 dnf module disable nodejs -y &>>$log_file
+if [ $? -eq 0 ]; then
+  echo SUCCESS
+else
+  echo FAILURE
+fi
+
 dnf module enable nodejs:18 -y &>>$log_file
 if [ $? -eq 0 ]; then
   echo SUCCESS
