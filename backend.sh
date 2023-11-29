@@ -34,7 +34,11 @@ else
 fi
 
 echo -e "$COLOR Add application User \e[0m"
-useradd expense &>>$log_file
+if [ -z $1 ]; then
+ echo Expense user added
+else
+  useradd expense &>>$log_file
+fi
 if [ $? -eq 0 ]; then
   echo -e "\e[32m SUCCESS \e[0m"
 else
