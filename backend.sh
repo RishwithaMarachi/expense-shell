@@ -7,7 +7,7 @@ dnf module enable nodejs:18 -y &>>$log_file
 # shellcheck disable=SC1073
 # shellcheck disable=SC1072
 # shellcheck disable=SC1020
-if [ $? -eq 0 ] ; then
+if [ $? -eq 0 ]; then
   echo -e SUCCESS
 else
   echo -e FAILURE
