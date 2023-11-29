@@ -44,9 +44,9 @@ if [ $? -ne 0 ]; then
  fi
 fi
 
-echo -e "$COLOR Making a directory with app \e[0m"
 if [ -d /app ]; then
- mkdir /app &>>$log_file
+echo -e "$COLOR Making a directory with app \e[0m"
+mkdir /app &>>$log_file
  if [ $? -eq 0 ]; then
   echo -e "\e[32m SUCCESS \e[0m"
  else
