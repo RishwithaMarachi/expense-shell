@@ -36,12 +36,12 @@ fi
 echo -e "$COLOR Add application User \e[0m"
 id expense &>>$log_file
 if [ $? -ne 0 ]; then
-useradd expense &>>$log_file
-if [ $? -eq 0 ]; then
+ useradd expense &>>$log_file
+ if [ $? -eq 0 ]; then
   echo -e "\e[32m SUCCESS \e[0m"
-else
+ else
   echo -e "\e[31m FAILURE \e[0m"
-fi
+ fi
 fi
 
 echo -e "$COLOR Making a directory with app \e[0m"
