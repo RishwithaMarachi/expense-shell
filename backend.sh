@@ -45,11 +45,13 @@ if [ $? -ne 0 ]; then
 fi
 
 echo -e "$COLOR Making a directory with app \e[0m"
-mkdir /app &>>$log_file
-if [ $? -eq 0 ]; then
+if [ -d /app ]; then
+ mkdir /app &>>$log_file
+ if [ $? -eq 0 ]; then
   echo -e "\e[32m SUCCESS \e[0m"
-else
+ else
   echo -e "\e[31m FAILURE \e[0m"
+ fi
 fi
 
 echo -e "$COLOR Removing old version content \e[0m"
