@@ -91,11 +91,7 @@ fi
 
 echo -e "$COLOR Load Schema \e[0m"
 mysql -h mysql-dev.devopsr1.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$log_file
-if [ $? -eq 0 ]; then
-  echo -e "\e[32m SUCCESS \e[0m"
-else
-  echo -e "\e[31m FAILURE \e[0m"
-fi
+echo $?
 
 echo -e "$COLOR Reload Enable and Restart \e[0m"
 systemctl daemon-reload &>>$log_file
