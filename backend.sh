@@ -1,5 +1,6 @@
 log_file=/tmp/expense.log
 COLOR="\e[31m"
+MySQL_ROOT_PASSWORD=$1
 
 echo -e "$COLOR Disable older version \e[0m"
 dnf module disable nodejs -y &>>$log_file
@@ -33,8 +34,8 @@ else
   echo -e "\e[31m FAILURE \e[0m"
 fi
 
-echo -e "$COLOR Add application User \e[0m"
 id expense &>>$log_file
+echo -e "$COLOR Add application User \e[0m"
 if [ $? -ne 0 ]; then
   useradd expense &>>$log_file
   if [ $? -eq 0 ]; then
@@ -90,7 +91,7 @@ else
 fi
 
 echo -e "$COLOR Load Schema \e[0m"
-mysql -h mysql-dev.devopsr1.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$log_file
+mysql -h mysql-dev.devopsr1.online -uroot -p${MySQL_ROOT_PASSWORD} < /app/schema/backend.sql &>>$log_file
 echo $?
 
 echo -e "$COLOR Reload Enable and Restart \e[0m"
