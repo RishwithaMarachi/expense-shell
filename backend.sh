@@ -4,13 +4,10 @@ COLOR="\e[31m"
 echo -e "$COLOR Disable older version and enable nodejs:18 \e[0m"
 dnf module disable nodejs -y &>>$log_file
 dnf module enable nodejs:18 -y &>>$log_file
-# shellcheck disable=SC1073
-# shellcheck disable=SC1072
-# shellcheck disable=SC1020
 if [ $? -eq 0 ]; then
-  echo -e SUCCESS
+  echo SUCCESS
 else
-  echo -e FAILURE
+  echo FAILURE
 fi
 
 echo -e "$COLOR Install Node.js \e[0m"
