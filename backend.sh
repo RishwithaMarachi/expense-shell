@@ -1,7 +1,7 @@
 log_file=/tmp/expense.log
 COLOR="\e[31m"
 
-echo -e "$COLOR Disable older version and enable nodejs:18 \e[0m"
+echo -e "$COLOR Disable older version \e[0m"
 dnf module disable nodejs -y &>>$log_file
 if [ $? -eq 0 ]; then
   echo SUCCESS
@@ -9,12 +9,9 @@ else
   echo FAILURE
 fi
 
+echo -e "$COLOR Enable Node.js \e[0m"
 dnf module enable nodejs:18 -y &>>$log_file
-if [ $? -eq 0 ]; then
-  echo SUCCESS
-else
-  echo FAILURE
-fi
+echo $?
 
 echo -e "$COLOR Install Node.js \e[0m"
 dnf install nodejs -y &>>$log_file
@@ -48,7 +45,7 @@ npm install &>>$log_file
 echo $?
 
 echo -e "$COLOR install mysql \e[0m"
-dnf install mysql -y
+dnf install mysql -y &>>$log_file
 echo $?
 
 echo -e "$COLOR Load Schema \e[0m"
