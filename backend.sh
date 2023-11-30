@@ -91,8 +91,11 @@ else
   echo -e "\e[31m FAILURE \e[0m"
 fi
 
+echo -e "$COLOR Reload \e[0m"
+systemctl daemon-reload &>>$log_file
+
 echo -e "$COLOR Load Schema \e[0m"
-mysql -h mysql-dev.devopsr1.online -uroot -p${MySQL_ROOT_PASSWORD} /app/schema/backend.sql &>>$log_file
+mysql -h mysql-dev.devopsr1.online -uroot -p${MySQL_ROOT_PASSWORD} < /app/schema/backend.sql &>>$log_file
 echo $?
 
 echo -e "$COLOR Reload Enable and Restart \e[0m"
