@@ -2,14 +2,17 @@ log_file=/tmp/expense.log
 COLOR="\e[31m"
 
 MySQL_ROOT_PASSWORD=$1
-
-echo -e "$COLOR Disable older version \e[0m"
-dnf module disable nodejs -y &>>$log_file
-if [ $? -eq 0 ]; then
+status_check(){
+  if [ $? -eq 0 ]; then
   echo -e "\e[32m SUCCESS \e[0m"
 else
   echo -e "\e[31m FAILURE \e[0m"
 fi
+}
+
+echo -e "$COLOR Disable older version \e[0m"
+dnf module disable nodejs -y &>>$log_file
+status_check
 
 echo -e "$COLOR Enable Node.js \e[0m"
 dnf module enable nodejs:18 -y &>>$log_file
