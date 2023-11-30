@@ -1,5 +1,6 @@
 log_file=/tmp/expense.log
 COLOR="\e[31m"
+
 MySQL_ROOT_PASSWORD=$1
 
 echo -e "$COLOR Disable older version \e[0m"
@@ -91,7 +92,7 @@ else
 fi
 
 echo -e "$COLOR Load Schema \e[0m"
-mysql -h mysql-dev.devopsr1.online -uroot -p${MySQL_ROOT_PASSWORD} < /app/schema/backend.sql &>>$log_file
+mysql -h mysql-dev.devopsr1.online -uroot -p${MySQL_ROOT_PASSWORD} /app/schema/backend.sql &>>$log_file
 echo $?
 
 echo -e "$COLOR Reload Enable and Restart \e[0m"
