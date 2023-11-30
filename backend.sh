@@ -64,8 +64,8 @@ systemctl daemon-reload &>>$log_file
 status_check
 
 echo -e "$COLOR Load Schema \e[0m"
-mysql -h mysql-dev.devopsr1.online -uroot -p${MySQL_ROOT_PASSWORD} < /app/schema/backend.sql &>>$log_file
-status_check
+mysql -h mysql-dev.devopsr1.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
 
 echo -e "$COLOR Reload Enable and Restart \e[0m"
 systemctl daemon-reload &>>$log_file
