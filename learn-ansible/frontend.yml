@@ -1,10 +1,10 @@
 - name: Expense frontend Setup
-  hosts: localhost
+  hosts: all
   become: yes
   tasks:
     - name: Install Nginx
       ansible.builtin.dnf:
-        name: Nginx
+        name: nginx
         state: present
     - name: Copying Expense Config
       ansible.builtin.copy:
