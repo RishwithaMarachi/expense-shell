@@ -18,7 +18,7 @@
       vars:
         URL1: sample.com
     - name: print a url2 in task level
-        ansible.builtin.debug:
-          msg: "{{ URL2 }}"
-        vars:
-          URL2: sample.com
+      ansible.builtin.debug:
+        msg: "{{ URL2 }}"
+      vars:
+        URL2: sample.com
