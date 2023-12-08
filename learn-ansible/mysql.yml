@@ -10,7 +10,7 @@
         dest: /etc/yum.repos.d/mysql.repo
     - name: Install mysql from community Server
       ansible.builtin.dnf:
-        name: mysql-community-server
+        name: mysql-community-server -y
         status: present
     - name: Enable and restart mysql
       ansible.builtin.systemd:
