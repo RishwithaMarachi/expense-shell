@@ -11,6 +11,9 @@
 # Declare a variable in tasks level
 - name: Declare a variable in tasks level
   hosts: localhost
+  vars:
+    URL1: example.com
+    URL2: example2.com
   tasks:
     - name: print a url1 in task level
       ansible.builtin.debug:
