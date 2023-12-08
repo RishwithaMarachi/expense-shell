@@ -1,8 +1,8 @@
-- name: Declare a variable
+- name: Declare Variable
   hosts: all
   vars:
-    URL: Sample.com
+    URL: sample.com
   tasks:
-    -name: Print URL Variable
-     ansible.builtin.debug
-      msg: "{{ URL }}"
+  -name: Print URL Variable
+   ansible.builtin.debug:
+    msg: "{{ URL }}"
