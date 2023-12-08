@@ -1,0 +1,10 @@
+# We are declaring a variables in three favours
+#1. Declaring a variable
+- name: Declaring a Vaariable
+  hosts: all
+  vars:
+    URL: Sample.com
+  tasks:
+    -name: Print URL Variable
+     ansible.builtin.debug:
+       msg: "{{ URL }}"
