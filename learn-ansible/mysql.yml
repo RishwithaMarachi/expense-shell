@@ -11,10 +11,10 @@
     - name: Install mysql from community Server
       ansible.builtin.dnf:
         name: mysql-community-server -y
-        status: present
+        state: present
     - name: Enable and restart mysql
       ansible.builtin.systemd:
-        status: restarted
+        state: restarted
         enabled: yes
     - name: Set Mysql password
       ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1
