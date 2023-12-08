@@ -1,3 +1,4 @@
+# We have a some favours to declare a variable
 - name: Declare Variable
   hosts: localhost
   vars:
@@ -6,3 +7,18 @@
     - name: Print URL Variable
       ansible.builtin.debug:
         msg: "{{ URL }}"
+
+# Declare a variable in tasks level
+- name: Declare a variable in tasks level
+  hosts: localhost
+  tasks:
+    - name: print a url1 in task level
+      ansible.builtin.debug:
+        msg: "{{ URL1 }}"
+      vars:
+        URL1: sample.com
+    - name: print a url2 in task level
+        ansible.builtin.debug:
+          msg: "{{ URL2 }}"
+        vars:
+          URL2: sample.com
