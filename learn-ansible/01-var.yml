@@ -1,6 +1,4 @@
-# We are declaring a variables in three favours
-#1. Declaring a variable
-- name: Declaring a Vaariable
+- name: Declaring a Variable
   hosts: all
   vars:
     URL: Sample.com
