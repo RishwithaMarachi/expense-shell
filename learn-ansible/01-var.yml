@@ -1,5 +1,5 @@
 - name: Declare Variable
-  hosts: 172.31.34.39
+  hosts: localhost
   vars:
     URL: sample.com
   tasks:
