@@ -1,5 +1,5 @@
 - name: Expense frontend Setup
-  hosts: localhost
+  hosts: all
   become: yes
   tasks:
     - name: Install Nginx
