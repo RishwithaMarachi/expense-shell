@@ -11,5 +11,5 @@
 - name: Download the application code to created app directory
   ansible.builtin.unarchive:
     src: https://expense-artifacts.s3.amazonaws.com/{{component}}.zip
-    dest: /app
+    dest: "{{ app.dir }}"
     remote_src: yes
