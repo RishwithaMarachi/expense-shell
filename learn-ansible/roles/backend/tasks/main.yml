@@ -21,7 +21,7 @@
     name: common
     tasks_from: app-prereq
   vars:
-    app_dir: /app
+    app_dir: /usr/share/nginx/html
     component: backend
 
 - name: Download the Nodejs dependencies

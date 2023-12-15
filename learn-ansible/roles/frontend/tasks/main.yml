@@ -13,7 +13,7 @@
     name: common
     tasks_from: app-prereq
   vars:
-    app_dir: /usr/share/nginx/html
+    app_dir: /app
     component: frontend
 
 - name: enable and restart Nginx
