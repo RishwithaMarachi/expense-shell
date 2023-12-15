@@ -1,9 +1,5 @@
-- name: Expense Backend Setup
-  hosts: all
-  become: yes
-  tasks:
-    - name: Disabled Nodejs default Version
-      ansible.builtin.shell: dnf module disable nodejs -y
+- name: Disabled Nodejs default Version
+    ansible.builtin.shell: dnf module disable nodejs -y
     - name: Enabled Nodejs newer version
       ansible.builtin.shell: dnf module enable nodejs:18 -y
     - name: Install Nodejs
@@ -46,5 +42,3 @@
         state: restarted
         enabled: yes
         daemon-reload: yes
-
-

@@ -1,9 +1,5 @@
-- name: Expense mysql Setup
-  hosts: all
-  become: yes
-  tasks:
-    - name: Disable mysql default version
-      ansible.builtin.shell: dnf module disable mysql -y
+- name: Disable mysql default version
+    ansible.builtin.shell: dnf module disable mysql -y
     - name: Copy Mysql repo file
       ansible.builtin.copy:
         src: mysql.repo
@@ -19,5 +15,3 @@
         enabled: yes
     - name: Set Mysql password
       ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1
-
-

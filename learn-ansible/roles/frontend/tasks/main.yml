@@ -1,11 +1,7 @@
-- name: Expense frontend Setup
-  hosts: all
-  become: yes
-  tasks:
-    - name: Install Nginx
-      ansible.builtin.dnf:
-        name: nginx
-        state: present
+- name: Install Nginx
+    ansible.builtin.dnf:
+      name: nginx
+      state: present
     - name: Copying Expense Config
       ansible.builtin.copy:
         src: expense.conf
