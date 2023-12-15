@@ -1,0 +1,4 @@
+- name: print Hello
+  hosts: localhost
+  roles:
+    - demo
