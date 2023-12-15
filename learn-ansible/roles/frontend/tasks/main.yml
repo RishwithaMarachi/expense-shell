@@ -2,23 +2,20 @@
   ansible.builtin.dnf:
     name: nginx
     state: present
+
 - name: Copying Expense Config
   ansible.builtin.copy:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
-- name: Clear the Old Dir
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-- name: Create Nginx Dir
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-- name: Download frontend application
-  ansible.builtin.unarchive:
-    src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+
+- name: Import Common Role - App Prerequites
+  ansible.builtin.import_roles:
+    name: common
+    tasks_from: app-prereq
+  vars:
+    app_dir: /usr/share/nginx/html
+    component: frontend
+
 - name: enable and restart Nginx
   ansible.builtin.systemd:
     name: nginx
