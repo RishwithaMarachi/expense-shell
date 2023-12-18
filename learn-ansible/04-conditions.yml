@@ -1,0 +1,11 @@
+- name: print Linux
+  hosts: localhost
+  tasks:
+    - name: print to Linux
+      ansible.builtin.debug:
+        msg: Hello, Linux
+      when: os_name="Linux"
+    - name: print to Linux
+      ansible.builtin.debug:
+        msg: Hello, Linux
+      when: os_name="Linux"
