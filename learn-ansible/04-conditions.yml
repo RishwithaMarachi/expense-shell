@@ -1,5 +1,5 @@
 - name: print Linux
-  hosts: localhost
+  hosts: all
   tasks:
     - name: print to Linux
       ansible.builtin.debug:
