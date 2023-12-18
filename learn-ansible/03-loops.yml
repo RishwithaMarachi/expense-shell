@@ -1,0 +1,12 @@
+- name: print loops
+  hosts: localhost
+  vars:
+    furits:
+      - apple
+      - banana
+      - orange
+  tasks:
+    - name: loop
+      ansible.builtin.debug:
+        msg: Furit-{{ item }}
+      loop: "{{ furit }}
