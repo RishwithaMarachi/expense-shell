@@ -4,8 +4,9 @@
     - name: print to Linux
       ansible.builtin.debug:
         msg: Hello, Linux
-      when: os_name="Linux"
+      when: os_name == "linux"
+
     - name: print to Linux
       ansible.builtin.debug:
         msg: Hello, Linux
-      when: os_name="Linux"
+      when: os_name == "uinux"
